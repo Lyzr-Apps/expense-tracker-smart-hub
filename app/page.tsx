@@ -181,6 +181,8 @@ export default function Home() {
 
       const result = await callAIAgent(message, AGENT_ID)
 
+      console.log('Agent Response:', result)
+
       if (result.success && result.response.status === 'success') {
         // Create new expense
         const newExpense: Expense = {
@@ -200,12 +202,16 @@ export default function Home() {
         setManualCategory('')
         setManualNotes('')
       } else {
-        setManualError(result.response.message || 'Failed to add expense')
-        addNotification('error', 'Failed to add expense')
+        const errorMsg = result.response?.message || result.error || 'Failed to add expense'
+        console.error('Agent Error:', errorMsg, result)
+        setManualError(errorMsg)
+        addNotification('error', errorMsg)
       }
     } catch (error) {
-      setManualError('An error occurred while adding expense')
-      addNotification('error', 'An error occurred')
+      console.error('Caught Error:', error)
+      const errorMsg = error instanceof Error ? error.message : 'An error occurred while adding expense'
+      setManualError(errorMsg)
+      addNotification('error', errorMsg)
     } finally {
       setManualLoading(false)
     }
