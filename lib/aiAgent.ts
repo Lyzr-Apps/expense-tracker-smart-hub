@@ -71,7 +71,14 @@ export async function callAIAgent(
   options?: { user_id?: string; session_id?: string; assets?: string[] }
 ): Promise<AIAgentResponse> {
   try {
-    const response = await fetch('/api/agent', {
+    // Use absolute URL to ensure request goes to the correct origin
+    const apiUrl = typeof window !== 'undefined'
+      ? `${window.location.origin}/api/agent`
+      : '/api/agent'
+
+    console.log('[callAIAgent] Calling API at:', apiUrl)
+
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -85,7 +92,11 @@ export async function callAIAgent(
       }),
     })
 
+    console.log('[callAIAgent] Response status:', response.status)
+    console.log('[callAIAgent] Response ok:', response.ok)
+
     const data = await response.json()
+    console.log('[callAIAgent] Response data:', data)
     return data
   } catch (error) {
     return {
@@ -126,7 +137,12 @@ export async function uploadFiles(files: File | File[]): Promise<UploadResponse>
       formData.append('files', file, file.name)
     }
 
-    const response = await fetch('/api/upload', {
+    // Use absolute URL to ensure request goes to the correct origin
+    const uploadUrl = typeof window !== 'undefined'
+      ? `${window.location.origin}/api/upload`
+      : '/api/upload'
+
+    const response = await fetch(uploadUrl, {
       method: 'POST',
       body: formData,
     })
