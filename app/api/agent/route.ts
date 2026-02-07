@@ -98,8 +98,14 @@ function normalizeResponse(parsed: any): NormalizedAgentResponse {
 }
 
 export async function POST(request: NextRequest) {
+  console.log('=== API Route POST handler called ===')
+  console.log('Request URL:', request.url)
+  console.log('Request method:', request.method)
+  console.log('Request headers:', Object.fromEntries(request.headers.entries()))
+
   try {
     const body = await request.json()
+    console.log('Request body:', body)
     const { message, agent_id, user_id, session_id, assets } = body
 
     if (!message || !agent_id) {
