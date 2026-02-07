@@ -161,23 +161,30 @@ export default function Home() {
 
   // Manual Entry Handler
   const handleManualSubmit = async () => {
+    console.log('=== handleManualSubmit called ===')
+    console.log('Amount:', manualAmount, 'Category:', manualCategory, 'Notes:', manualNotes)
+
     // Validation
     setManualError('')
 
     if (!manualAmount || parseFloat(manualAmount) <= 0) {
+      console.log('Validation failed: Invalid amount')
       setManualError('Please enter a valid amount greater than 0')
       return
     }
 
     if (!manualCategory) {
+      console.log('Validation failed: No category selected')
       setManualError('Please select a category')
       return
     }
 
+    console.log('Validation passed, calling agent...')
     setManualLoading(true)
 
     try {
       const message = `Add expense: Amount: ₹${manualAmount}, Category: ${manualCategory}, Notes: ${manualNotes || 'None'}`
+      console.log('Message to agent:', message)
 
       const result = await callAIAgent(message, AGENT_ID)
 
