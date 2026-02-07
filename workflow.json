@@ -1,0 +1,36 @@
+{
+  "nodes": [
+    {
+      "id": "input_node",
+      "type": "Input",
+      "label": "Expense Input (Manual/Excel/Image/Chat)",
+      "nodeCategory": "input"
+    },
+    {
+      "id": "expense_tracker_agent",
+      "type": "Agent",
+      "label": "Expense Tracker Agent",
+      "nodeCategory": "agent",
+      "agent_id": "6986fb79b5dbd6b726853933",
+      "agent_name": "Expense Tracker Agent"
+    },
+    {
+      "id": "output_node",
+      "type": "Output",
+      "label": "Expense Analysis & Results",
+      "nodeCategory": "end"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input_node",
+      "target": "expense_tracker_agent"
+    },
+    {
+      "source": "expense_tracker_agent",
+      "target": "output_node"
+    }
+  ],
+  "workflow_type": "single_agent",
+  "created_at": "2026-02-07T00:00:00.000Z"
+}

@@ -1,0 +1,30 @@
+{
+  "agent_name": "Expense Tracker Agent",
+  "agent_id": "6986fb79b5dbd6b726853933",
+  "test_message": "What's my total spending this week and which category is highest?",
+  "expected_purpose": "expense_tracker",
+  "timestamp": "2026-02-07T08:46:08.496039",
+  "is_valid_json": true,
+  "validation_errors": [],
+  "actual_response": {
+    "status": "success",
+    "result": {
+      "expense_id": "N/A",
+      "amount": 0,
+      "category": "N/A",
+      "date": "N/A",
+      "merchant": "N/A",
+      "notes": "N/A",
+      "payment_method": "N/A",
+      "source": "analysis",
+      "extracted_data": {},
+      "analysis": "Your total spending this week is $350. The category with the highest expenditure is 'Food'."
+    },
+    "metadata": {
+      "agent_name": "Expense Tracker Agent",
+      "timestamp": "2023-10-06T12:00:00Z",
+      "processing_type": "analysis"
+    }
+  },
+  "raw_response": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"expense_id\": \"N/A\",\n    \"amount\": 0,\n    \"category\": \"N/A\",\n    \"date\": \"N/A\",\n    \"merchant\": \"N/A\",\n    \"notes\": \"N/A\",\n    \"payment_method\": \"N/A\",\n    \"source\": \"analysis\",\n    \"extracted_data\": {},\n    \"analysis\": \"Your total spending this week is $350. The category with the highest expenditure is 'Food'.\"\n  },\n  \"metadata\": {\n    \"agent_name\": \"Expense Tracker Agent\",\n    \"timestamp\": \"2023-10-06T12:00:00Z\",\n    \"processing_type\": \"analysis\"\n  }\n}"
+}

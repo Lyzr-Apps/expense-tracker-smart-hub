@@ -1,0 +1,70 @@
+{
+  "agent_name": "Expense Tracker Agent",
+  "agent_id": "6986fb79b5dbd6b726853933",
+  "agent_purpose": "expense_tracker",
+  "description": "Processes expense entries from manual form, Excel uploads, receipt/note images with OCR, validates inputs, and provides expense analysis",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "expense_id": "string",
+      "amount": "number",
+      "category": "string",
+      "date": "string",
+      "merchant": "string",
+      "notes": "string",
+      "payment_method": "string",
+      "source": "string",
+      "extracted_data": {},
+      "analysis": "string"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string",
+      "processing_type": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "expense_id": "N/A",
+      "amount": 0,
+      "category": "N/A",
+      "date": "N/A",
+      "merchant": "N/A",
+      "notes": "N/A",
+      "payment_method": "N/A",
+      "source": "analysis",
+      "extracted_data": {},
+      "analysis": "Your total spending this week is $350. The category with the highest expenditure is 'Food'."
+    },
+    "metadata": {
+      "agent_name": "Expense Tracker Agent",
+      "timestamp": "2023-10-06T12:00:00Z",
+      "processing_type": "analysis"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-07T08:46:08.496753",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "expense_id": "N/A",
+      "amount": 0,
+      "category": "N/A",
+      "date": "N/A",
+      "merchant": "N/A",
+      "notes": "N/A",
+      "payment_method": "N/A",
+      "source": "analysis",
+      "extracted_data": {},
+      "analysis": "Your total spending this week is $350. The category with the highest expenditure is 'Food'."
+    },
+    "metadata": {
+      "agent_name": "Expense Tracker Agent",
+      "timestamp": "2023-10-06T12:00:00Z",
+      "processing_type": "analysis"
+    }
+  },
+  "test_passed": true
+}

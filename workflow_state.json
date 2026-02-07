@@ -1,0 +1,24 @@
+{
+  "workflow_type": "single_agent",
+  "agents": [
+    {
+      "name": "Expense Tracker Agent",
+      "agent_id": "6986fb79b5dbd6b726853933",
+      "type": "single",
+      "description": "Processes expense entries from manual form, extracts and validates data from Excel uploads, performs OCR on receipt/note images with smart categorization, validates all inputs, and provides expense analysis through chat",
+      "provider": "OpenAI",
+      "model": "gpt-4o",
+      "temperature": 0.3,
+      "top_p": 1,
+      "capabilities": [
+        "vision_ocr",
+        "manual_expense_entry",
+        "excel_data_extraction",
+        "smart_categorization",
+        "expense_analysis"
+      ]
+    }
+  ],
+  "created_at": "2026-02-07T00:00:00.000Z",
+  "workflow_status": "active"
+}
