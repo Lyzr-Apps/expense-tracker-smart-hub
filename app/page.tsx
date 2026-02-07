@@ -143,9 +143,9 @@ export default function Home() {
   }
 
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('en-IN', {
       style: 'currency',
-      currency: 'USD'
+      currency: 'INR'
     }).format(amount)
   }
 
@@ -177,7 +177,7 @@ export default function Home() {
     setManualLoading(true)
 
     try {
-      const message = `Add expense: Amount: $${manualAmount}, Category: ${manualCategory}, Notes: ${manualNotes || 'None'}`
+      const message = `Add expense: Amount: ₹${manualAmount}, Category: ${manualCategory}, Notes: ${manualNotes || 'None'}`
 
       const result = await callAIAgent(message, AGENT_ID)
 
@@ -623,7 +623,7 @@ export default function Home() {
                       <div className="space-y-2">
                         <Label htmlFor="amount" className="text-slate-300">Amount *</Label>
                         <div className="relative">
-                          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">$</span>
+                          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">₹</span>
                           <Input
                             id="amount"
                             type="number"
@@ -896,7 +896,7 @@ export default function Home() {
                               <div className="space-y-2">
                                 <Label className="text-slate-300">Amount</Label>
                                 <div className="relative">
-                                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">$</span>
+                                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">₹</span>
                                   <Input
                                     type="number"
                                     step="0.01"
